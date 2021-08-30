@@ -13,19 +13,25 @@ Learning chess is hard. Learning chess openings is harder. This app is to help p
 ## API and Data Sample
 
 The Lichess opening explorer API is free to use and doesn't require an auth key. By inputting a FEN ([Forsyth-Edwards Notation](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation): describes a chess board position), the API will return a JSON that includes, among other things, the [ECO](https://en.wikipedia.org/wiki/Encyclopaedia_of_Chess_Openings) code and name of the opening if the position has one. For example,
-`{"white":36446,"draws":60733,"black":23262,"moves":[{"uci":"a7a6","san":"a6","white":26936,"draws":44584,"black":17189,"averageRating":2425},{"uci":"g8f6","san":"Nf6","white":5163,"draws":11713,"black":3499,"averageRating":2470},{"uci":"f7f5","san":"f5","white":1512,"draws":1500,"black":768,"averageRating":2379}`
-...
-`"averageRating":2429,`
+
+```
+{"white":36446,"draws":60733,"black":23262,"moves":[{"uci":"a7a6","san":"a6","white":26936,"draws":44584,"black":17189,"averageRating":2425},{"uci":"g8f6","san":"Nf6","white":5163,"draws":11713,"black":3499,"averageRating":2470},{"uci":"f7f5","san":"f5","white":1512,"draws":1500,"black":768,"averageRating":2379}
+```
+
+...`"averageRating":2429,`...
+
+```
+"opening":{"eco":"C60","name":"Ruy Lopez"},
+```
+
 ...
 
-`"opening":{"eco":"C60","name":"Ruy Lopez"},`
-
-...
-`"topGames":[{"id":"jYSkjcuG","winner":"draw","speed":"classical","white":{"name":"Carlsen, M.","rating":2882},"black":{"name":"Caruana, F.","rating":2818},"year":2019},{"id":"Sxov6E94","winner":"white","speed":"classical","white":{"name":"Caruana, F.","rating":2818},"black":{"name":"Carlsen, M.","rating":2882},"year":2019},{"id":"hFigNtet","winner":"draw","speed":"classical","white":{"name":"Caruana, F.","rating":2819},"black":{"name":"Carlsen, M.","rating":2875},"year":2019},{"id":"ezRQfr7f","winner":"black","speed":"classical","white":{"name":"Carlsen, M.","rating":2882},"black":{"name":"Ding Liren","rating":2805},"year":2019}]}`
+```
+"topGames":[{"id":"jYSkjcuG","winner":"draw","speed":"classical","white":{"name":"Carlsen, M.","rating":2882},"black":{"name":"Caruana, F.","rating":2818},"year":2019},{"id":"Sxov6E94","winner":"white","speed":"classical","white":{"name":"Caruana, F.","rating":2818},"black":{"name":"Carlsen, M.","rating":2882},"year":2019},{"id":"hFigNtet","winner":"draw","speed":"classical","white":{"name":"Caruana, F.","rating":2819},"black":{"name":"Carlsen, M.","rating":2875},"year":2019},{"id":"ezRQfr7f","winner":"black","speed":"classical","white":{"name":"Carlsen, M.","rating":2882},"black":{"name":"Ding Liren","rating":2805},"year":2019}]}
+```
 
 ## Wireframes
 
-(Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.)
 ![alt text](assets/wireframe-1.png "homepage")
 ![alt text](assets/wireframe-2.png "result page")
 
@@ -74,11 +80,22 @@ Tell us how long you anticipate spending on each area of development. Be sure to
 
 Time frames are also key in the development cycle. You have limited time to code all phases of the game. Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. It's always best to pad the time by a few hours so that you account for the unknown so add and additional hour or two to each component to play it safe. Throughout your project, keep track of your Time Invested and Actual Time and update your README regularly.
 
-| Component        | Priority | Estimated Time | Time Invested | Actual Time |
-| ---------------- | :------: | :------------: | :-----------: | :---------: |
-| Adding Form      |    H     |      3hrs      |    3.5hrs     |   3.5hrs    |
-| Working with API |    H     |      3hrs      |    2.5hrs     |   2.5hrs    |
-| Total            |    H     |      6hrs      |     5hrs      |    5hrs     |
+| Component                                  | Priority | Estimated Time | Time Invested | Actual Time |
+| ------------------------------------------ | :------: | :------------: | :-----------: | :---------: |
+| Adding Form                                |    H     |      hrs       |     0hrs      |    0hrs     |
+| HTML/CSS: initial layout                   |    H     |      3hrs      |     0hrs      |    0hrs     |
+| HTML/CS: buttons/display                   |    H     |      3hrs      |     0hrs      |    0hrs     |
+| Create board and getFEN                    |    H     |      3hrs      |     0hrs      |    0hrs     |
+| Lichess API                                |    H     |      3hrs      |     2hrs      |    0hrs     |
+| Display opening info                       |    H     |      2hrs      |     0hrs      |    0hrs     |
+| Reset button                               |    H     |      3hrs      |     0hrs      |   3.5hrs    |
+| More styling                               |    H     |      3hrs      |     0hrs      |    0hrs     |
+| Enable "play" button for next moves        |    H     |      3hrs      |     0hrs      |    0hrs     |
+| Save root position for retrying next moves |    H     |      3hrs      |     0hrs      |    0hrs     |
+| Adding Form                                |    H     |      hrs       |     0hrs      |    0hrs     |
+| Adding Form                                |    H     |      hrs       |     0hrs      |    0hrs     |
+| Adding Form                                |    H     |      hrs       |     0hrs      |    0hrs     |
+| Total                                      |    H     |     26hrs      |      hrs      |     hrs     |
 
 ## Code Snippet
 
