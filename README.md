@@ -219,7 +219,7 @@ The Lichess opening explorer API is free to use and doesn't require an auth key.
 
 ## Priority Matrix
 
-Include a full list of features that have been prioritized based on the `Time and Importance` Matrix. Link this image in a similar manner to your wireframes
+![alt text](assets/priority-matrix.png "priority matrix")
 
 ## Timeframes
 
@@ -231,15 +231,15 @@ Include a full list of features that have been prioritized based on the `Time an
 | Lichess API                                |    H     |      3hrs      |     0hrs      |    0hrs     |
 | Display opening info                       |    H     |      3hrs      |     0hrs      |    0hrs     |
 | Style opening info                         |    H     |      3hrs      |     0hrs      |    0hrs     |
-| Reset button/function                      |    H     |      3hrs      |     0hrs      |    0hrs     |
-| More CSS styling                           |    H     |      3hrs      |     0hrs      |    0hrs     |
-| Buttons out of opening info/next moves     |    H     |      3hrs      |     0hrs      |    0hrs     |
-| Button for playing next moves              |    H     |      3hrs      |     0hrs      |    0hrs     |
-| Save root position for retrying next moves |    H     |      3hrs      |     0hrs      |    0hrs     |
-| Flip board button/function                 |    H     |      3hrs      |     0hrs      |    0hrs     |
-| Quiz button/function                       |    H     |      3hrs      |     0hrs      |    0hrs     |
-| More styling                               |    H     |      3hrs      |     0hrs      |    0hrs     |
-| Total                                      |    H     |     42hrs      |      hrs      |     hrs     |
+| More CSS styling                           |    M     |      3hrs      |     0hrs      |    0hrs     |
+| More styling                               |    M     |      3hrs      |     0hrs      |    0hrs     |
+| Reset button/function                      |    M     |      3hrs      |     0hrs      |    0hrs     |
+| Buttons out of opening info/next moves     |    L     |      3hrs      |     0hrs      |    0hrs     |
+| Button for playing next moves              |    L     |      3hrs      |     0hrs      |    0hrs     |
+| Save root position for retrying next moves |    L     |      3hrs      |     0hrs      |    0hrs     |
+| Flip board button/function                 |    L     |      3hrs      |     0hrs      |    0hrs     |
+| Quiz button/function                       |    L     |      3hrs      |     0hrs      |    0hrs     |
+| Total                                      |          |     42hrs      |      hrs      |     hrs     |
 
 ## Code Snippet
 
