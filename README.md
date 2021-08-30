@@ -3,7 +3,7 @@
 ## Project Name
 
 Is this an opening?
-![alt text](https://imgflip.com/i/5l9yoz "sure, why not?")
+![alt text](https://i.imgflip.com/5l9yoz.jpg "sure, why not?")
 
 ## Project Description
 
@@ -12,10 +12,13 @@ Learning chess is hard. Learning chess openings is harder. This app is to help p
 ## API and Data Sample
 
 The Lichess opening explorer API is free to use and doesn't require an auth key. By inputting a FEN ([Forsyth-Edwards Notation](https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation): describes a chess board position), the API will return a JSON that includes, among other things, the [ECO](https://en.wikipedia.org/wiki/Encyclopaedia_of_Chess_Openings) code and name of the opening if the position has one. For example,
-`{"white":36446,"draws":60733,"black":23262,"moves":[{"uci":"a7a6","san":"a6","white":26936,"draws":44584,"black":17189,"averageRating":2425},{"uci":"g8f6","san":"Nf6","white":5163,"draws":11713,"black":3499,"averageRating":2470},{"uci":"f7f5","san":"f5","white":1512,"draws":1500,"black":768,"averageRating":2379}`...
+`{"white":36446,"draws":60733,"black":23262,"moves":[{"uci":"a7a6","san":"a6","white":26936,"draws":44584,"black":17189,"averageRating":2425},{"uci":"g8f6","san":"Nf6","white":5163,"draws":11713,"black":3499,"averageRating":2470},{"uci":"f7f5","san":"f5","white":1512,"draws":1500,"black":768,"averageRating":2379}`
+...
 `"averageRating":2429,`
 ...
+
 `"opening":{"eco":"C60","name":"Ruy Lopez"},`
+
 ...
 `"topGames":[{"id":"jYSkjcuG","winner":"draw","speed":"classical","white":{"name":"Carlsen, M.","rating":2882},"black":{"name":"Caruana, F.","rating":2818},"year":2019},{"id":"Sxov6E94","winner":"white","speed":"classical","white":{"name":"Caruana, F.","rating":2818},"black":{"name":"Carlsen, M.","rating":2882},"year":2019},{"id":"hFigNtet","winner":"draw","speed":"classical","white":{"name":"Caruana, F.","rating":2819},"black":{"name":"Carlsen, M.","rating":2875},"year":2019},{"id":"ezRQfr7f","winner":"black","speed":"classical","white":{"name":"Carlsen, M.","rating":2882},"black":{"name":"Ding Liren","rating":2805},"year":2019}]}`
 
