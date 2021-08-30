@@ -1,9 +1,10 @@
 # Project Overview
 
+![alt text](https://i.imgflip.com/5l9yoz.jpg "sure, why not?")
+
 ## Project Name
 
 Is this an opening?
-![alt text](https://i.imgflip.com/5l9yoz.jpg "sure, why not?")
 
 ## Project Description
 
@@ -24,7 +25,9 @@ The Lichess opening explorer API is free to use and doesn't require an auth key.
 
 ## Wireframes
 
-Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
+(Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.)
+(./assets/wireframe-1.png)
+(./assets/wireframe-2.png)
 
 ### MVP/PostMVP
 
@@ -32,18 +35,18 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 
 #### MVP
 
-_These are examples only. Replace with your own MVP features._
-
-- Find and use external api
-- Render data on page
-- Allow user to choose favorites
+- Use chessboard on page to input moves and get FEN
+- Button to ask if position is an opening
+- Send FEN to Lichess opening API and return opening code and name
+- Show opening or message that position is not in opening encyclopedia
+- Allow user to reset board and check another opening
 
 #### PostMVP
 
-_These are examples only. Replace with your own Post-MVP features._
-
-- Add second API
-- Use local storage to save user favorites
+- Allow user to input following moves and compare against most commonly played next moves
+- Offer 'quiz' that lists various openings for user to select which matches current position
+- Display main openings/variations that "branch" from current position
+- Keep history of moves so player can repeat play from original position
 
 ## Project Schedule
 
@@ -51,15 +54,15 @@ This schedule will be used to keep track of your progress throughout the week an
 
 You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
-| Day        | Deliverable                                        | Status     |
-| ---------- | -------------------------------------------------- | ---------- |
-| July 10-12 | Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete |
-| July 13    | Project Approval                                   | Incomplete |
-| July 13    | Core Application Structure (HTML, CSS, etc.)       | Incomplete |
-| July 14    | Pseudocode / actual code                           | Incomplete |
-| July 15    | Initial Clickable Model                            | Incomplete |
-| July 16    | MVP                                                | Incomplete |
-| July 17    | Presentations                                      | Incomplete |
+| Day          | Deliverable                                        | Status     |
+| ------------ | -------------------------------------------------- | ---------- |
+| August 27-30 | Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete |
+| August 30    | Project Approval                                   | Incomplete |
+| August 31    | Core Application Structure (HTML, CSS, etc.)       | Incomplete |
+| August 31    | Pseudocode / actual code                           | Incomplete |
+| September 2  | Initial Clickable Model                            | Incomplete |
+| September 2  | MVP                                                | Incomplete |
+| September 3  | Presentations                                      | Incomplete |
 
 ## Priority Matrix
 
