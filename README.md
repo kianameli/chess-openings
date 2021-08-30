@@ -26,8 +26,8 @@ The Lichess opening explorer API is free to use and doesn't require an auth key.
 ## Wireframes
 
 (Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.)
-(./assets/wireframe-1.png)
-(./assets/wireframe-2.png)
+(assets/wireframe-1.png)
+(assets/wireframe-2.png)
 
 ### MVP/PostMVP
 
