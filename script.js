@@ -1,9 +1,11 @@
 const game = new Chess();
+// console.log(game);
 const BASE_URL_OPENING = "https://explorer.lichess.ovh/master?fen=";
 let $status = $("#status");
 let $fen = $("#fen");
 let $pgn = $("#pgn");
 
+//functions: onDragStart, onDrop, onSnapEnd, and updateStatus are directly from chess.js documentation examples
 function onDragStart(source, piece, position, orientation) {
   // do not pick up pieces if the game is over
   if (game.game_over()) return false;
@@ -95,6 +97,7 @@ async function handleIsOpeningClick(evt) {
 function handleResetClick(evt) {
   game.reset();
   board.position("start");
+  updateStatus();
 }
 
 let isOpeningBtn = document.querySelector("#is-opening-button");
