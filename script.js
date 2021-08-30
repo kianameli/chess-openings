@@ -1,3 +1,6 @@
-let board = {};
-board = new AbChess("board");
-board.setFEN();
+let boardOptions = {
+  draggable: true,
+  position: "start",
+  dropOffBoard: "snapback",
+};
+let board = Chessboard("board", boardOptions);
