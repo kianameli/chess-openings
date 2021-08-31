@@ -207,15 +207,15 @@ The Lichess opening explorer API is free to use and doesn't require an auth key.
 
 ## Project Schedule
 
-| Day          | Deliverable                                        | Status     |
-| ------------ | -------------------------------------------------- | ---------- |
-| August 27-30 | Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete |
-| August 30    | Project Approval                                   | Incomplete |
-| August 31    | Core Application Structure (HTML, CSS, etc.)       | Incomplete |
-| August 31    | Pseudocode / actual code                           | Incomplete |
-| September 1  | Initial Clickable Model                            | Incomplete |
-| September 2  | MVP                                                | Incomplete |
-| September 3  | Presentations                                      | Incomplete |
+| Day          | Deliverable                                        | Status      |
+| ------------ | -------------------------------------------------- | ----------- |
+| August 27-30 | Prompt / Wireframes / Priority Matrix / Timeframes | Complete    |
+| August 30    | Project Approval                                   | Complete    |
+| August 31    | Core Application Structure (HTML, CSS, etc.)       | In progress |
+| August 31    | Pseudocode / actual code                           | In progress |
+| September 1  | Initial Clickable Model                            | In progress |
+| September 2  | MVP                                                | Incomplete  |
+| September 3  | Presentations                                      | Incomplete  |
 
 ## Priority Matrix
 
@@ -225,15 +225,15 @@ The Lichess opening explorer API is free to use and doesn't require an auth key.
 
 | Component                                  | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------------------------------ | :------: | :------------: | :-----------: | :---------: |
-| HTML/CSS: initial layout                   |    H     |      3hrs      |     0hrs      |    0hrs     |
-| HTML/CS: buttons/display                   |    H     |      3hrs      |     0hrs      |    0hrs     |
-| Create board and getFEN                    |    H     |      3hrs      |     0hrs      |    0hrs     |
-| Lichess API                                |    H     |      3hrs      |     0hrs      |    0hrs     |
-| Display opening info                       |    H     |      3hrs      |     0hrs      |    0hrs     |
+| HTML/CSS: initial layout                   |    H     |      3hrs      |     6hrs      |    0hrs     |
+| HTML/CS: buttons/display                   |    H     |      3hrs      |     2hrs      |    2hrs     |
+| Create board and getFEN                    |    H     |      3hrs      |     6hrs      |    6hrs     |
+| Lichess API                                |    H     |      3hrs      |    0.5hrs     |   0.5hrs    |
+| Display opening info                       |    H     |      3hrs      |     1hrs      |    1hrs     |
 | Style opening info                         |    H     |      3hrs      |     0hrs      |    0hrs     |
 | More CSS styling                           |    M     |      3hrs      |     0hrs      |    0hrs     |
 | More styling                               |    M     |      3hrs      |     0hrs      |    0hrs     |
-| Reset button/function                      |    M     |      3hrs      |     0hrs      |    0hrs     |
+| Reset button/function                      |    M     |      3hrs      |    0.5hrs     |   0.5hrs    |
 | Buttons out of opening info/next moves     |    L     |      3hrs      |     0hrs      |    0hrs     |
 | Button for playing next moves              |    L     |      3hrs      |     0hrs      |    0hrs     |
 | Save root position for retrying next moves |    L     |      3hrs      |     0hrs      |    0hrs     |

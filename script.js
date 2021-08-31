@@ -21,7 +21,7 @@ function onDragStart(source, piece, position, orientation) {
 
 function onDrop(source, target) {
   // see if the move is legal
-  var move = game.move({
+  let move = game.move({
     from: source,
     to: target,
     promotion: "q", // NOTE: always promote to a queen for example simplicity
@@ -40,9 +40,8 @@ function onSnapEnd() {
 }
 
 function updateStatus() {
-  var status = "";
-
-  var moveColor = "White";
+  let status = "";
+  let moveColor = "White";
   if (game.turn() === "b") {
     moveColor = "Black";
   }
@@ -72,36 +71,107 @@ function updateStatus() {
   $pgn.html(game.pgn());
 }
 
-var config = {
+function updateNextMoves(nextMoves) {
+  //reset #next-moves-list
+  let nextMovesList = document.querySelector("#next-moves-list");
+  nextMovesList.innerHTML = "";
+  //get prefix for pgn nexthalfmove notation
+  let moveNum = game.fen().split(" ").pop();
+  let nextMovePrefix = `${moveNum}.${game.turn() === "w" ? " " : ".."}`;
+  //populate #next-moves-list
+  nextMoves.forEach((nextMove) => {
+    let newLi = document.createElement("li");
+    newLi.innerHTML = `${nextMovePrefix}${nextMove.san}`;
+    nextMovesList.appendChild(newLi);
+  });
+}
+
+function updateTextElementById(elementId, data) {
+  let element = document.querySelector(`#${elementId}`);
+  element.innerHTML = data;
+}
+
+function resetOpeningInfo() {
+  let nextMovesList = document.querySelector("#next-moves-list");
+  nextMovesList.innerHTML = "";
+  updateTextElementById("opening-msg", "");
+}
+
+function updateOpeningInfo(data) {
+  if (data.opening) {
+    updateTextElementById(
+      "opening-msg",
+      `${data.opening.eco}: ${data.opening.name}`
+    );
+  } else if (!document.querySelector("#opening-msg").innerHTML) {
+    updateTextElementById("opening-msg", "This isn't an opening!");
+  }
+  if (data.moves) {
+    updateNextMoves(data.moves);
+  }
+}
+
+async function handleIsOpeningClick() {
+  const fen = game.fen();
+  const encodedFEN = encodeURI(fen);
+  // console.log(fen);
+  try {
+    let res = await axios.get(`${BASE_URL_OPENING}${encodedFEN}`);
+    console.log(res.data);
+    let data = res.data;
+    updateOpeningInfo(data);
+    if (data.opening) {
+    } else {
+      console.log("This is not an ECO opening");
+    }
+    //nextMoves = data.moves;
+    //updateNextMoves(nextMoves);
+    console.log(nextMoves);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function handleResetClick() {
+  game.reset();
+  board.position("start");
+  updateStatus();
+  //clear opening info too
+  resetOpeningInfo();
+}
+
+function handleRuyLopezClick() {
+  const ruyLopezFEN =
+    "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3";
+  const ruyLopezPGN = "1. e4 e5 2. Nf3 Nc6 3. Bb5";
+  game.reset();
+  game.load(ruyLopezFEN);
+  board.position(ruyLopezFEN);
+  updateStatus();
+  resetOpeningInfo();
+  //document.querySelector("#pgn").innerHTML = ruyLopezPGN;
+  $pgn.html(ruyLopezPGN);
+}
+
+let config = {
   draggable: true,
   position: "start",
   onDragStart: onDragStart,
   onDrop: onDrop,
   onSnapEnd: onSnapEnd,
 };
+
 let board = Chessboard("board", config);
-
 updateStatus();
-
-async function handleIsOpeningClick(evt) {
-  const fen = encodeURI(game.fen());
-  // console.log(fen);
-  try {
-    let res = await axios.get(`${BASE_URL_OPENING}${fen}`);
-    console.log(res.data);
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-function handleResetClick(evt) {
-  game.reset();
-  board.position("start");
-  updateStatus();
-}
 
 let isOpeningBtn = document.querySelector("#is-opening-button");
 isOpeningBtn.addEventListener("click", handleIsOpeningClick);
 
 let resetBtn = document.querySelector("#reset-button");
 resetBtn.addEventListener("click", handleResetClick);
+
+let ruyLopezBtn = document.querySelector("#ruy-lopez-button");
+ruyLopezBtn.addEventListener("click", handleRuyLopezClick);
+
+let nextMoves = [];
+let openingName = "";

@@ -1,0 +1,58 @@
+/* body {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+} */
+
+header,
+main,
+footer {
+  margin: 1% auto;
+  padding-block: 2%;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: aqua;
+  border: 2px black;
+  border-style: solid;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#game-info {
+  /* align-content: flex-start; */
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 2% auto;
+  text-align: left;
+  /* max-width: 2%; */
+}
+
+#board {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+}
+
+#buttons {
+  position: relative;
+  margin: 2% auto;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+#board-and-buttons {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 2% 0% 2% 1%;
+  text-align: center;
+  align-items: left;
+}
+
+#fen,
+label[for="fen"],
+label[for="next-moves"] {
+  display: none;
+}
