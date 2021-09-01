@@ -42,8 +42,14 @@ function onSnapEnd() {
 function updateStatus() {
   let status = "";
   let moveColor = "White";
+
+  let bgColor = "white";
+  let textColor = "black";
+
   if (game.turn() === "b") {
     moveColor = "Black";
+    bgColor = "black";
+    textColor = "white";
   }
 
   // checkmate?
@@ -69,6 +75,11 @@ function updateStatus() {
   $status.html(status);
   $fen.html(game.fen());
   $pgn.html(game.pgn());
+
+  // let statusObj = document.querySelector("#status");
+  // statusObj.setAttribute("background-color",)
+  $status.css("background-color", bgColor);
+  $status.css("color", textColor);
 }
 
 function updateNextMoves(nextMoves) {
@@ -94,7 +105,26 @@ function updateTextElementById(elementId, data) {
 function resetOpeningInfo() {
   let nextMovesList = document.querySelector("#next-moves-list");
   nextMovesList.innerHTML = "";
-  updateTextElementById("opening-msg", "");
+  updateTextElementById(
+    "opening-msg",
+    "Play some moves to see if they're an opening"
+  );
+  updateTextElementById("opening-win-info", "");
+}
+
+function getOpeningWinInfo(data) {
+  let whiteWins = data.white,
+    draws = data.draws,
+    blackWins = data.black;
+  let total = whiteWins + draws + blackWins;
+  let whitePct = Math.floor(100 * (whiteWins / total)),
+    drawsPct = Math.floor(100 * (draws / total)),
+    blackPct = Math.floor(100 * (blackWins / total));
+  let winInfo =
+    game.turn() === "w"
+      ? `Black: ${blackPct}%,  Draw: ${drawsPct}%,  White: ${whitePct}%`
+      : `White: ${whitePct}%,  Draw: ${drawsPct}%,  Black: ${blackPct}%`;
+  return winInfo;
 }
 
 function updateOpeningInfo(data) {
@@ -103,6 +133,7 @@ function updateOpeningInfo(data) {
       "opening-msg",
       `${data.opening.eco}: ${data.opening.name}`
     );
+    updateTextElementById("opening-win-info", getOpeningWinInfo(data));
   } else if (!document.querySelector("#opening-msg").innerHTML) {
     updateTextElementById("opening-msg", "This isn't an opening!");
   }
@@ -140,6 +171,20 @@ function handleResetClick() {
   resetOpeningInfo();
 }
 
+function handleGetFENClick(evt) {
+  let fenText = document.querySelector("#fen");
+  if (fenText.style.display === "none") {
+    fenText.style.display = "block";
+    updateTextElementById("fen", game.fen());
+    updateTextElementById("get-fen-button", "Hide FEN");
+  } else {
+    fenText.style.display = "none";
+    updateTextElementById("get-fen-button", "Show FEN");
+  }
+  evt.target;
+  // updateTextElementById("fen", game.fen());
+}
+
 function handleRuyLopezClick() {
   const ruyLopezFEN =
     "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3";
@@ -172,6 +217,9 @@ resetBtn.addEventListener("click", handleResetClick);
 
 let ruyLopezBtn = document.querySelector("#ruy-lopez-button");
 ruyLopezBtn.addEventListener("click", handleRuyLopezClick);
+
+let getFENBtn = document.querySelector("#get-fen-button");
+getFENBtn.addEventListener("click", handleGetFENClick);
 
 let nextMoves = [];
 let openingName = "";

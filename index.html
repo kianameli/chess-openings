@@ -16,43 +16,45 @@
   
   <title>Is this an opening?</title>
   <meta property="og:image" content="https://camo.githubusercontent.com/a6bdd1daaa1f1c4c48a4743297e414f05e3d92d32e4dcd581f4087e73f3a42ee/68747470733a2f2f692e696d67666c69702e636f6d2f356c39796f7a2e6a7067"/>
-  
+
 </head>
 <body>
   <header>
     <h1>Is this an opening?</h1>
   </header>
 
+  <div id="opening-info">
+    <h2 id="opening-msg">Play some moves to see if they're an opening</h2>
+    <h4 id="opening-win-info"></h4>
+  </div>
+
   <main>
     
+    
     <section id="board-and-buttons">
-      <h3 id="opening-msg"></h3>
-      <div id="board" style="width: 300px"></div>
-      
+      <div id="status"></div>
+      <div id="board" style="width: 300px"></div> 
       <div id="buttons">
         <button id="is-opening-button">Is this an opening?</button>
         <button id="reset-button">Reset</button>
         <button id="ruy-lopez-button">RuyLopez</button>
       </div>
-    </section>
-
-    <section id="game-info">
-      <div id="status"></div>
       <div id="pgn"></div>
-      <label for="fen">FEN:</label>
-      <div id="fen"></div>
+      
     </section>
-
-    <label for="next-moves">Next moves:</label>
-    <div id="next-moves">
-      <ul id="next-moves-list"></ul>
-    </div>
     
+    <section id="next-moves-section">
+      <label for="next-moves">Next moves:</label>
+      <div id="next-moves">
+        <ul id="next-moves-list"></ul>
+      </div>
+    </section>
     
   </main>
   
   <footer>
-    
+    <button id="get-fen-button">Show FEN</button>
+    <div id="fen"></div>
   </footer>
 
 </body>
