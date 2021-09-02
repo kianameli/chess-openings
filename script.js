@@ -84,16 +84,23 @@ function updateStatus() {
 }
 
 function handleNextMoveClick(evt) {
-  //console.log(evt.target.innerHTML);
-  let movePGN = evt.target.innerHTML.split(".");
-  let moveTemp = movePGN[movePGN.length - 1].split(" ");
-  let move = moveTemp[moveTemp.length - 1];
+  let move = evt.target.innerHTML.split(/[\s.]+/).pop();
   game.move(move);
   board.position(game.fen());
   updateStatus();
-  resetOpeningInfo(false);
-  handleIsOpeningClick();
-  //  game.move(evt.target.innerHTML);
+  resetOpeningInfo(false); //passing false means the opening info won't be updated if there is no distinct opening for this continuation, but the nextMoves will still be updated if there are any
+  handleIsOpeningClick(); //clicking and playing a next move updates opening info same as 'Is this an opening' button
+}
+
+//creates li for next move given half-move prefix and move in SAN notation
+//also creates click listener for li that uses (hidden child value) SAN to play the clicked next move
+//finally, returns new li
+function createNextMoveLi(nextMovePrefix, san) {
+  let newLi = document.createElement("li");
+  newLi.innerHTML = `${nextMovePrefix}${san}`;
+  newLi.addEventListener("click", handleNextMoveClick);
+  newLi.style.cursor = "pointer";
+  return newLi;
 }
 
 //clears existing nextMovesList and (re)populates with values from lichess opening response
@@ -102,19 +109,12 @@ function updateNextMoves(nextMoves) {
   let nextMovesList = document.querySelector("#next-moves-list");
   nextMovesList.innerHTML = "";
   //get prefix for pgn nexthalfmove notation
-  let moveNum = game.fen().split(" ").pop();
-  let nextMovePrefix = `${moveNum}.${game.turn() === "w" ? " " : ".."}`;
+  let moveNum = game.fen().split(" ").pop(); //gets the last " "-delimited substr of FEN (which is move#)
+  let nextMovePrefix = `${moveNum}.${game.turn() === "w" ? " " : ".."}`; //ex. black moves e6 on turn 3=>'3...e6'
   //populate #next-moves-list
   nextMoves.forEach((nextMove) => {
-    let newLi = document.createElement("li");
-    let newLiSAN = document.createElement("p");
-    newLiSAN.id = "san";
-    newLiSAN.innerHTML = nextMove.san;
-    newLi.appendChild(newLiSAN);
-    newLi.innerHTML = `${nextMovePrefix}${nextMove.san}`;
-    newLi.addEventListener("click", handleNextMoveClick);
-    newLi.style.cursor = "pointer";
-    nextMovesList.appendChild(newLi);
+    let nextMoveLi = createNextMoveLi(nextMovePrefix, nextMove.san);
+    nextMovesList.appendChild(nextMoveLi);
   });
 }
 
