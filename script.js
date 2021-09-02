@@ -1,6 +1,7 @@
 const game = new Chess();
 // console.log(game);
 const BASE_URL_OPENING = "https://explorer.lichess.ovh/master?fen=";
+const OPENING_INSTRUCTION = "Play some moves to see if they're an opening";
 let $status = $("#status");
 let $fen = $("#fen");
 let $pgn = $("#pgn");
@@ -95,6 +96,7 @@ function handleNextMoveClick(evt) {
   //  game.move(evt.target.innerHTML);
 }
 
+//clears existing nextMovesList and (re)populates with values from lichess opening response
 function updateNextMoves(nextMoves) {
   //reset #next-moves-list
   let nextMovesList = document.querySelector("#next-moves-list");
@@ -125,14 +127,12 @@ function resetOpeningInfo(clearLast = true) {
   let nextMovesList = document.querySelector("#next-moves-list");
   nextMovesList.innerHTML = "";
   if (clearLast) {
-    updateTextElementById(
-      "opening-msg",
-      "Play some moves to see if they're an opening"
-    );
+    updateTextElementById("opening-msg", OPENING_INSTRUCTION);
     updateTextElementById("opening-win-info", "");
   }
 }
 
+//returns string of w/d/l info for opening
 function getOpeningWinInfo(data) {
   let whiteWins = data.white,
     draws = data.draws,
@@ -155,9 +155,13 @@ function updateOpeningInfo(data) {
       `${data.opening.eco}: ${data.opening.name}`
     );
     updateTextElementById("opening-win-info", getOpeningWinInfo(data));
-  } else if (!document.querySelector("#opening-msg").innerHTML) {
+    //if no existing opening and still on opening_instruction, tell user no opening
+  } else if (
+    document.querySelector("#opening-msg").innerHTML === OPENING_INSTRUCTION
+  ) {
     updateTextElementById("opening-msg", "This isn't an opening!");
   }
+  //if not distinct opening (but still has continuation), next moves are loaded for same opening
   if (data.moves) {
     updateNextMoves(data.moves);
   }
@@ -166,19 +170,10 @@ function updateOpeningInfo(data) {
 async function handleIsOpeningClick() {
   const fen = game.fen();
   const encodedFEN = encodeURI(fen);
-  // console.log(fen);
   try {
     let res = await axios.get(`${BASE_URL_OPENING}${encodedFEN}`);
-    //console.log(res.data);
     let data = res.data;
     updateOpeningInfo(data);
-    if (data.opening) {
-    } else {
-      //console.log("This is not an ECO opening");
-    }
-    //nextMoves = data.moves;
-    //updateNextMoves(nextMoves);
-    // console.log(nextMoves);
   } catch (error) {
     console.log(error);
   }

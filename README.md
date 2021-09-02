@@ -214,7 +214,7 @@ The Lichess opening explorer API is free to use and doesn't require an auth key.
 | August 31    | Core Application Structure (HTML, CSS, etc.)       | Complete   |
 | August 31    | Pseudocode / actual code                           | Complete   |
 | September 1  | Initial Clickable Model                            | Complete   |
-| September 2  | MVP                                                | Incomplete |
+| September 2  | MVP                                                | Complete   |
 | September 3  | Presentations                                      | Incomplete |
 
 ## Priority Matrix
@@ -232,14 +232,14 @@ The Lichess opening explorer API is free to use and doesn't require an auth key.
 | Display opening info                       |    H     |      3hrs      |     1hrs      |    1hrs     |
 | Style opening info                         |    H     |      3hrs      |     1hrs      |    1hrs     |
 | More CSS styling                           |    M     |      3hrs      |     5hrs      |    5hrs     |
-| More styling                               |    M     |      3hrs      |     3hrs      |    3hrs     |
+| More styling                               |    M     |      3hrs      |     6hrs      |    6hrs     |
 | Reset button/function                      |    M     |      3hrs      |    0.5hrs     |   0.5hrs    |
-| Buttons out of opening info/next moves     |    L     |      3hrs      |     0hrs      |    0hrs     |
-| Button for playing next moves              |    L     |      3hrs      |     0hrs      |    0hrs     |
+| Buttons out of opening info/next moves     |    L     |      3hrs      |     3hrs      |    3hrs     |
+| Button for playing next moves              |    L     |      3hrs      |     3hrs      |    3hrs     |
 | Save root position for retrying next moves |    L     |      3hrs      |     0hrs      |    0hrs     |
 | Flip board button/function                 |    L     |      3hrs      |     0hrs      |    0hrs     |
 | Quiz button/function                       |    L     |      3hrs      |     0hrs      |    0hrs     |
-| Total                                      |          |     42hrs      |     25hrs     |     hrs     |
+| Total                                      |          |     42hrs      |     34hrs     |     hrs     |
 
 ## Code Snippet
 
