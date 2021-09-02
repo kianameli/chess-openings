@@ -106,7 +106,6 @@ section {
 }
 
 #san,
-#ruy-lopez-button,
 label[for="fen"],
 label[for="next-moves"] {
   display: none;
