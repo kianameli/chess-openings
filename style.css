@@ -1,7 +1,13 @@
+html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 body {
   padding: 0;
   margin: 0;
   background-color: aqua;
+  position: relative;
+  touch-action: manipulation;
 }
 header,
 main,
@@ -24,6 +30,14 @@ header {
 main {
   flex-flow: row wrap;
   justify-content: center;
+}
+footer {
+  /* display: flex;
+  flex-flow: column;
+  align-items: center; */
+  bottom: 0;
+  position: fixed;
+  width: 100%;
 }
 section {
   position: relative;
@@ -79,6 +93,7 @@ section {
   padding: 2%;
 }
 
+#san,
 label[for="fen"],
 label[for="next-moves"] {
   display: none;
@@ -126,21 +141,24 @@ li {
     justify-content: center;
   }
   header {
-    max-height: 100px;
+    max-height: 15%;
   }
   main {
     flex-flow: column;
     position: relative;
-    max-width: 80%;
+    max-width: 100%;
     justify-content: center;
   }
+  footer {
+    max-height: 10%;
+  }
   #opening-info {
-    max-height: 100px;
+    max-height: 10%;
     padding: 1%;
   }
   #next-moves-section {
     max-height: 6rem;
-    margin-bottom: 5px;
+    margin-bottom: 1%;
   }
   #next-moves {
     display: flex;

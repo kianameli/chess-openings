@@ -82,6 +82,19 @@ function updateStatus() {
   $status.css("color", textColor);
 }
 
+function handleNextMoveClick(evt) {
+  //console.log(evt.target.innerHTML);
+  let movePGN = evt.target.innerHTML.split(".");
+  let moveTemp = movePGN[movePGN.length - 1].split(" ");
+  let move = moveTemp[moveTemp.length - 1];
+  game.move(move);
+  board.position(game.fen());
+  updateStatus();
+  resetOpeningInfo(false);
+  handleIsOpeningClick();
+  //  game.move(evt.target.innerHTML);
+}
+
 function updateNextMoves(nextMoves) {
   //reset #next-moves-list
   let nextMovesList = document.querySelector("#next-moves-list");
@@ -92,7 +105,13 @@ function updateNextMoves(nextMoves) {
   //populate #next-moves-list
   nextMoves.forEach((nextMove) => {
     let newLi = document.createElement("li");
+    let newLiSAN = document.createElement("p");
+    newLiSAN.id = "san";
+    newLiSAN.innerHTML = nextMove.san;
+    newLi.appendChild(newLiSAN);
     newLi.innerHTML = `${nextMovePrefix}${nextMove.san}`;
+    newLi.addEventListener("click", handleNextMoveClick);
+    newLi.style.cursor = "pointer";
     nextMovesList.appendChild(newLi);
   });
 }
@@ -102,14 +121,16 @@ function updateTextElementById(elementId, data) {
   element.innerHTML = data;
 }
 
-function resetOpeningInfo() {
+function resetOpeningInfo(clearLast = true) {
   let nextMovesList = document.querySelector("#next-moves-list");
   nextMovesList.innerHTML = "";
-  updateTextElementById(
-    "opening-msg",
-    "Play some moves to see if they're an opening"
-  );
-  updateTextElementById("opening-win-info", "");
+  if (clearLast) {
+    updateTextElementById(
+      "opening-msg",
+      "Play some moves to see if they're an opening"
+    );
+    updateTextElementById("opening-win-info", "");
+  }
 }
 
 function getOpeningWinInfo(data) {
@@ -148,16 +169,16 @@ async function handleIsOpeningClick() {
   // console.log(fen);
   try {
     let res = await axios.get(`${BASE_URL_OPENING}${encodedFEN}`);
-    console.log(res.data);
+    //console.log(res.data);
     let data = res.data;
     updateOpeningInfo(data);
     if (data.opening) {
     } else {
-      console.log("This is not an ECO opening");
+      //console.log("This is not an ECO opening");
     }
     //nextMoves = data.moves;
     //updateNextMoves(nextMoves);
-    console.log(nextMoves);
+    // console.log(nextMoves);
   } catch (error) {
     console.log(error);
   }
