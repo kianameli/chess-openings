@@ -134,17 +134,20 @@ function resetOpeningInfo(clearLast = true) {
 
 //returns string of w/d/l info for opening
 function getOpeningWinInfo(data) {
-  let whiteWins = data.white,
-    draws = data.draws,
-    blackWins = data.black;
-  let total = whiteWins + draws + blackWins;
-  let whitePct = Math.floor(100 * (whiteWins / total)),
-    drawsPct = Math.floor(100 * (draws / total)),
-    blackPct = Math.floor(100 * (blackWins / total));
-  let winInfo =
-    game.turn() === "w"
-      ? `Black: ${blackPct}%,  Draw: ${drawsPct}%,  White: ${whitePct}%`
-      : `White: ${whitePct}%,  Draw: ${drawsPct}%,  Black: ${blackPct}%`;
+  let winInfo = "";
+  if (data.white) {
+    let whiteWins = data.white,
+      draws = data.draws,
+      blackWins = data.black;
+    let total = whiteWins + draws + blackWins;
+    let whitePct = Math.floor(100 * (whiteWins / total)),
+      drawsPct = Math.floor(100 * (draws / total)),
+      blackPct = Math.floor(100 * (blackWins / total));
+    winInfo =
+      game.turn() === "w"
+        ? `Black: ${blackPct}%,  Draw: ${drawsPct}%,  White: ${whitePct}%`
+        : `White: ${whitePct}%,  Draw: ${drawsPct}%,  Black: ${blackPct}%`;
+  }
   return winInfo;
 }
 
