@@ -88,7 +88,7 @@ function handleNextMoveClick(evt) {
   game.move(move);
   board.position(game.fen());
   updateStatus();
-  resetOpeningInfo(false); //passing false means the opening info won't be updated if there is no distinct opening for this continuation, but the nextMoves will still be updated if there are any
+  resetOpeningInfo(false); //false so opening info won't be updated if no distinct opening for this continuation, but nextMoves will still be updated
   handleIsOpeningClick(); //clicking and playing a next move updates opening info same as 'Is this an opening' button
 }
 

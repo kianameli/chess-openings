@@ -243,4 +243,15 @@ The Lichess opening explorer API is free to use and doesn't require an auth key.
 
 ## Code Snippet
 
+```
+function handleNextMoveClick(evt) {
+  let move = evt.target.innerHTML.split(/[\s.]+/).pop();
+  game.move(move);
+  board.position(game.fen());
+  updateStatus();
+  resetOpeningInfo(false); //false so opening info won't be updated if no distinct opening for this continuation, but nextMoves will still be updated
+  handleIsOpeningClick(); //clicking and playing a next move updates opening info same as 'Is this an opening' button
+}
+```
+
 ## Change Log
